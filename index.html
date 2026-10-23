@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Les réseaux informatiques en milieu professionnel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        header {
+            min-height: 100vh;
+            padding: 30px 8%;
+            color: white;
+            background:
+                linear-gradient(rgba(4, 31, 63, 0.88), rgba(0, 102, 153, 0.82)),
+                radial-gradient(circle at top right, #19b5fe, #041f3f);
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #77e5ff;
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .network-icon {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 25px;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 55px;
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            color: #e5f7ff;
+        }
+
+        .teacher {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 13px 25px;
+            border-radius: 8px;
+            background-color: #00b8d4;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #00a0bb;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            max-width: 750px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            margin-bottom: 12px;
+            color: #083b66;
+            font-size: 2.2rem;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .introduction {
+            background-color: white;
+        }
+
+        .intro-box {
+            max-width: 1000px;
+            margin: auto;
+            padding: 35px;
+            border-left: 6px solid #00a8cc;
+            border-radius: 12px;
+            background-color: #edfaff;
+            box-shadow: 0 8px 25px rgba(0, 45, 80, 0.08);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            padding: 28px;
+            border-radius: 14px;
+            background-color: white;
+            box-shadow: 0 8px 25px rgba(4, 31, 63, 0.09);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(4, 31, 63, 0.15);
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0077b6, #00b8d4);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #075985;
+        }
+
+        .branches {
+            background-color: #eaf5fb;
+        }
+
+        .branch-card {
+            border-top: 5px solid #0096c7;
+        }
+
+        .members {
+            background-color: white;
+        }
+
+        .member-card {
+            text-align: center;
+            border-bottom: 5px solid #00a8cc;
+        }
+
+        .avatar {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #083b66, #00a8cc);
+            color: white;
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        .member-card h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .member-card p {
+            color: #718096;
+        }
+
+        .conclusion {
+            color: white;
+            text-align: center;
+            background: linear-gradient(135deg, #052f54, #0077a8);
+        }
+
+        .conclusion h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .conclusion p {
+            max-width: 850px;
+            margin: auto;
+            color: #e1f5fe;
+        }
+
+        footer {
+            padding: 25px;
+            background-color: #031d35;
+            color: #cfe8f3;
+            text-align: center;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 750px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            header {
+                padding: 25px 5%;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="accueil">
+        <nav>
+            <div class="logo">RÉSEAUX INFORMATIQUES</div>
+
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#avantages">Avantages</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#membres">Notre groupe</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <div class="network-icon">🌐</div>
+
+                <h1>Les réseaux informatiques dans le milieu professionnel</h1>
+
+                <p>
+                    Découvrez le rôle, les avantages et les principales branches
+                    des réseaux informatiques au sein des entreprises modernes.
+                </p>
+
+                <div class="teacher">
+                    Professeur : <strong>MR KOBENA ALI</strong>
+                </div>
+
+                <br>
+
+                <a class="button" href="#avantages">Découvrir le sujet</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="introduction">
+            <div class="section-title">
+                <h2>Présentation générale</h2>
+                <p>Le réseau informatique est au cœur du fonctionnement des entreprises.</p>
+            </div>
+
+            <div class="intro-box">
+                <p>
+                    Un réseau informatique est un ensemble d’ordinateurs, de serveurs,
+                    de logiciels et d’équipements interconnectés afin d’échanger des
+                    informations et de partager des ressources. Dans le milieu
+                    professionnel, il facilite la communication, le travail collaboratif,
+                    l’accès aux applications, la protection des données et la continuité
+                    des activités.
+                </p>
+            </div>
+        </section>
+
+        <section id="avantages">
+            <div class="section-title">
+                <h2>Les avantages en milieu professionnel</h2>
+                <p>
+                    Les réseaux informatiques améliorent la productivité, la sécurité
+                    et l’organisation des entreprises.
+                </p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Communication rapide</h3>
+                    <p>
+                        Les employés communiquent instantanément grâce aux courriels,
+                        à la messagerie, à la visioconférence et à la téléphonie IP.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📁</div>
+                    <h3>Partage des ressources</h3>
+                    <p>
+                        Les utilisateurs peuvent partager des fichiers, des imprimantes,
+                        des logiciels, des bases de données et une même connexion Internet.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Travail collaboratif</h3>
+                    <p>
+                        Plusieurs personnes peuvent travailler sur les mêmes documents
+                        et projets, même lorsqu’elles se trouvent à distance.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Sécurité des données</h3>
+                    <p>
+                        Les pare-feu, les droits d’accès, les sauvegardes et le chiffrement
+                        protègent les informations sensibles de l’entreprise.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Gestion centralisée</h3>
+                    <p>
+                        Les administrateurs peuvent contrôler les comptes, les équipements,
+                        les logiciels et les politiques de sécurité depuis un point central.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Accès à distance</h3>
+                    <p>
+                        Le VPN et les services infonuagiques permettent aux employés
+                        d’accéder aux ressources professionnelles depuis l’extérieur.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Automatisation</h3>
+                    <p>
+                        Les réseaux facilitent l’automatisation des sauvegardes,
+                        des mises à jour, de la surveillance et de nombreux services.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Réduction des coûts</h3>
+                    <p>
+                        Le partage des équipements et l’utilisation de la téléphonie IP
+                        réduisent les dépenses de communication et d’exploitation.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="branches" id="branches">
+            <div class="section-title">
+                <h2>Les principales branches des réseaux</h2>
+                <p>
+                    Chaque branche répond à des besoins techniques précis dans
+                    l’infrastructure informatique.
+                </p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card branch-card">
+                    <h3>Administration réseau</h3>
+                    <p>
+                        Installation, configuration et maintenance des routeurs,
+                        commutateurs, serveurs et postes de travail.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Sécurité des réseaux</h3>
+                    <p>
+                        Protection du système contre les intrusions, les logiciels
+                        malveillants, les attaques et les accès non autorisés.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Réseaux locaux et étendus</h3>
+                    <p>
+                        Les réseaux LAN relient les équipements d’un même site,
+                        tandis que les réseaux WAN relient plusieurs sites distants.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Réseaux sans fil</h3>
+                    <p>
+                        Déploiement et sécurisation des réseaux Wi-Fi, mobiles
+                        et des systèmes de communication sans fil.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Télécommunications</h3>
+                    <p>
+                        Transmission de la voix, des données et des vidéos à travers
+                        les réseaux fixes, mobiles, radio et satellitaires.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Téléphonie IP</h3>
+                    <p>
+                        Transport des communications vocales sur un réseau IP grâce
+                        aux téléphones IP, aux serveurs PBX et au protocole SIP.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Cloud computing</h3>
+                    <p>
+                        Mise à disposition de serveurs, d’applications et de capacités
+                        de stockage accessibles à travers Internet.
+                    </p>
+                </article>
+
+                <article class="card branch-card">
+                    <h3>Supervision réseau</h3>
+                    <p>
+                        Surveillance des équipements, du trafic, des performances
+                        et des incidents afin de garantir la disponibilité des services.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="members" id="membres">
+            <div class="section-title">
+                <h2>Membres du groupe</h2>
+                <p>Travail réalisé sous la supervision de <strong>MR KOBENA ALI</strong>.</p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card member-card">
+                    <div class="avatar">KJ</div>
+                    <h3>KANGAH KOUAKOU HENRI JOEL</h3>
+                    <p>Membre du groupe</p>
+                </article>
+
+                <article class="card member-card">
+                    <div class="avatar">DL</div>
+                    <h3>DIANE MADJARA LARISSA</h3>
+                    <p>Membre du groupe</p>
+                </article>
+
+                <article class="card member-card">
+                    <div class="avatar">KR</div>
+                    <h3>KOFFI N'GUESSAN RAOUL</h3>
+                    <p>Membre du groupe</p>
+                </article>
+
+                <article class="card member-card">
+                    <div class="avatar">KH</div>
+                    <h3>KONE HAMED</h3>
+                    <p>Membre du groupe</p>
+                </article>
+
+                <article class="card member-card">
+                    <div class="avatar">TK</div>
+                    <h3>TOURE SIE KADER</h3>
+                    <p>Membre du groupe</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="conclusion">
+            <h2>Conclusion</h2>
+
+            <p>
+                Les réseaux informatiques constituent une infrastructure essentielle
+                pour les entreprises. Ils permettent de communiquer, de collaborer,
+                de partager les ressources et de sécuriser les informations. Leur
+                maîtrise représente donc une compétence importante pour accompagner
+                la transformation numérique du milieu professionnel.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Projet présenté par notre groupe — Professeur :
+            <strong>MR KOBENA ALI</strong>
+        </p>
+    </footer>
+
+</body>
+</html>
